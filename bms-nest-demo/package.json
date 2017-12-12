@@ -1,0 +1,83 @@
+{
+  "name": "bms-nest",
+  "version": "1.0.0",
+  "description": "bms-nest-description",
+  "main": "main.js",
+  "scripts": {
+    "precommit": "npm test",
+    "preparecommitmsg": "validate-commit-msg",
+    "prepush": "npm test",
+    "test": "npm run lint -- --fix && npm run pkgfiles && npm run test-local",
+    "lint": "eslint .",
+    "pkgfiles": "egg-bin pkgfiles",
+    "test-local": "egg-bin test --full-trace",
+    "cov": "egg-bin cov",
+    "ci": "npm run pkgfiles --check && npm run lint && npm run cov",
+    "dev": "egg-bin dev --port 3002",
+    "debug": "egg-bin debug --port 3002"
+  },
+  "dependencies": {
+    "co": "^4.6.0",
+    "co-wrap-all": "^1.0.0",
+    "debug": "^2.6.9",
+    "egg": "^1.10.0",
+    "egg-cors": "^1.2.0",
+    "egg-redis": "^1.0.2",
+    "moment": "^2.19.1",
+    "pify": "^2.3.0",
+    "spruce-mongoose": "git+http://repo.4sstar.cn/spruce-think/spruce-mongoose.git",
+    "spruce-proxy": "git+http://repo.4sstar.cn/spruce-think/spruce-proxy.git",
+    "spruce-rabbitmq": "git+http://repo.4sstar.cn/spruce-think/spruce-rabbitmq.git",
+    "spruce-util": "git+http://repo.4sstar.cn/spruce-think/spruce-util.git",
+    "spruce-validate": "git+http://repo.4sstar.cn/spruce-think/spruce-validate.git"
+  },
+  "devDependencies": {
+    "autod": "^2.10.1",
+    "autod-egg": "^1.0.0",
+    "egg-bin": "^3.4.0",
+    "egg-ci": "^1.6.0",
+    "egg-mock": "^3.13.1",
+    "eslint": "^4.10.0",
+    "eslint-config-egg": "^5.1.1",
+    "husky": "^0.14.3",
+    "validate-commit-msg": "^2.13.1"
+  },
+  "config": {
+    "validate-commit-msg": {
+      "types": [
+        "feat",
+        "fix",
+        "docs",
+        "style",
+        "refactor",
+        "perf",
+        "test",
+        "build",
+        "ci",
+        "chore",
+        "revert"
+      ],
+      "scope": {
+        "required": true,
+        "allowed": [
+          "*"
+        ],
+        "validate": true,
+        "multiple": false
+      },
+      "warnOnFail": false,
+      "maxSubjectLength": 100,
+      "subjectPattern": ".+",
+      "subjectPatternErrorMsg": "subject does not match subject pattern!",
+      "helpMessage": "please see Angularjs commit message standar",
+      "autoFix": false
+    }
+  },
+  "files": [
+    "app",
+    "config",
+    "app.js"
+  ],
+  "author": "sprucethink",
+  "license": "ISC"
+}
