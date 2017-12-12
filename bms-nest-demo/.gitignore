@@ -1,0 +1,15 @@
+node_modules
+coverage
+*.log
+.logs
+logs
+*.swp
+run
+*-run
+.idea
+.vscode
+.DS_Store
+.tmp
+*.log.*
+package-lock.json
+.history
