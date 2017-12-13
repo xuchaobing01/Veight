@@ -29,5 +29,12 @@ module.exports = appInfo => {
     agent: false,
   };
 
+  config.security = {
+    csrf: false,
+    // cors 跨域访问白名单
+    //domainWhiteList: [ 'loc.4sme.cn', 'www.dev.4sme.cn', 'www.dev2.4sme.cn' ],
+  };
+  
+
   return config;
 };

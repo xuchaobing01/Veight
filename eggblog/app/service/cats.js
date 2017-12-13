@@ -6,8 +6,12 @@ class CatsService extends Service {
     /**
      * 栏目列表
      */
-    async list() {
-        const cats = await this.app.mysql.select('cat');
+    async list(params) {
+        const cats = await this.app.mysql.select('cat',{
+            columns:['cat_id','catname','num'],
+            orders:[['cat_id','asc']],
+            ...params
+        });
         return cats;
     }
 
