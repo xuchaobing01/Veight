@@ -19,7 +19,7 @@ module.exports = appInfo => {
       // username
       user: 'root',
       // password
-      password: 'root',
+      password: '',
       // database
       database: 'veight',    
     },

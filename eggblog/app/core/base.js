@@ -3,6 +3,10 @@
 const { Controller } = require('egg');
 
 class BaseController extends Controller {
+    /**
+     * 构造函数
+     * @param {*} ctx 
+     */
     constructor(ctx) {
         super(ctx);
         // 分页保留的关键字
@@ -21,6 +25,10 @@ class BaseController extends Controller {
     get params() {
         return this.ctx.request.body;
     }
+    /**
+     * 获取指定参数
+     * @param {*} name 
+     */
     getParam(name){
         let value = this.ctx.request.body[name];
         if(!value || (undefined === value) ){
@@ -31,19 +39,17 @@ class BaseController extends Controller {
     getServer(name){
         return this.ctx.service[name];
     }
+
     validate(rule) {
         this.ctx.validate(rule);
     }
-    success(result) {
-        const body = {};
-        body.code = 1;
-        if (typeof result === 'string') {
-            body.msg = result;
-        } else {
-            body.data = result;
-        }
+
+    json(body) {
         this.ctx.body = body;
     }
+    
+    
+
 }
 
 module.exports = BaseController;
